@@ -8,6 +8,7 @@ menos que 7 aprobado, entre 7 y 8 notable y entre 9 y 10 incluido sobresaliente.
 diferente a este rango, que diga “el valor introducido no es correcto”.
  */
 
+//Función que te indica en palabras el estado de una nota en base al número
 fun notaAlfab (nota: Int): String{
     val mensaje = when{
         nota < 5 ->  "Suspenso"
