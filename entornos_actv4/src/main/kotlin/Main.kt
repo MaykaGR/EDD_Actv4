@@ -2,9 +2,11 @@
 Versión:
 Autor: MªCarmen González Ruiz
 Empresa/Entidad: Rafael Alberti
-Proyecto: Crear un array de 20 números aleatorios. Por medio de dos funciones se ordena de menor a mayor y
-se suma los números que incluya el array.
+Proyecto: Crear un array de 20 números aleatorios. Por medio de funciones se ordena de menor a mayor y
+se suma los números que incluya el array. Una tercera función devuelve una lista de sólo los números pares
+del array.
  */
+//Recibe un array de números y devuelve otro con estos números ordenados de menor a mayor
 fun menorMayor(lista:IntArray, cant:Int): IntArray{
     val listaOrdenada = lista
     repeat (cant){
@@ -22,7 +24,7 @@ fun menorMayor(lista:IntArray, cant:Int): IntArray{
     }
     return listaOrdenada
 }
-
+//Recibe un array de números y devuelve la suma
 fun sumaArray(lista:IntArray, cant:Int): Int{
     var num = 0
     var total = 0
@@ -32,7 +34,17 @@ fun sumaArray(lista:IntArray, cant:Int): Int{
    }
     return total
 }
-
+//Genera una lista con los números del array que sean pares
+fun sinImpares(array: IntArray): MutableList<Int>{
+    val arr = array
+    var lista = mutableListOf<Int>()
+    for(i in 0..arr.size-1){
+        if(arr[i]%2 == 0){
+            lista.add(arr[i])
+        }
+    }
+    return lista
+}
 fun main() {
    var arr = IntArray(20)
     for(i in 0..19){
@@ -53,6 +65,10 @@ fun main() {
     print("El primer número en el array ordenado de menor a mayor es: ")
     println(ordenada[0])
     println("")
+    print("El último número en el array ordenado de menor a mayor es: ")
+    println(ordenada[19])
+    println("")
     print("La suma de todos los números del array es: ")
     println(sumaArray(arr,20))
+    println("La lista sin los números impares es: ${sinImpares(arr)}")
 }
