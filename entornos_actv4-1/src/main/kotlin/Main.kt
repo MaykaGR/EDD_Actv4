@@ -9,22 +9,23 @@ diferente a este rango, que diga “el valor introducido no es correcto”.
  */
 
 //Función que te indica en palabras el estado de una nota en base al número
-fun notaAlfab (nota: Int): String{
-    val mensaje = when{
-        nota < 5 ->  "Suspenso"
-        nota >= 5 ->  "Aprobado"
-        nota < 7 -> "Aprobado"
-        nota >=7 -> "Notable"
-        nota <= 8 -> "Notable"
+fun notaAlfab (nota: Float): String{
+    var mensaje = when{
+        nota == 10.0F -> "Sobresaliente"
         nota >= 9 -> "Sobresaliente"
-        nota == 10 -> "Sobresaliente"
+        nota >=7 -> "Notable"
+        nota >= 5 ->  "Aprobado"
+        nota < 5 ->  "Suspenso"
         else -> "Error"
+    }
+    if(nota !in 1.0..10.0){
+        mensaje = "Nota incorrecta"
     }
     return mensaje
 }
 
 fun main() {
     println("Introduce la nota: ")
-    val nota = readLine()?.toInt()?: 0
+    val nota = readLine()?.toFloat()?: 0.0F
     println(notaAlfab(nota))
 }
