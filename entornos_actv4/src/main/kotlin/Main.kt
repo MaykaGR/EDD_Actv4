@@ -34,17 +34,7 @@ fun sumaArray(lista:IntArray, cant:Int): Int{
    }
     return total
 }
-//Genera una lista con los números del array que sean pares
-fun sinImpares(array: IntArray): MutableList<Int>{
-    val arr = array
-    var lista = mutableListOf<Int>()
-    for(i in 0..arr.size-1){
-        if(arr[i]%2 == 0){
-            lista.add(arr[i])
-        }
-    }
-    return lista
-}
+
 fun main() {
    var arr = IntArray(20)
     for(i in 0..19){
@@ -70,5 +60,14 @@ fun main() {
     println("")
     print("La suma de todos los números del array es: ")
     println(sumaArray(arr,20))
-    println("La lista sin los números impares es: ${sinImpares(arr)}")
+    for(i in 0..arr.size-1){
+        if(arr[i]%2 !== 0){
+            arr[i] = 0
+        }
+    }
+    print("La lista sin los números impares es: ")
+    for(i in arr.indices){
+        print("${arr[i]}, ")
+    }
+    println("")
 }
